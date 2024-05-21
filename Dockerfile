@@ -30,6 +30,7 @@ USER ringracers
 
 RUN git clone https://git.do.srb2.org/KartKrew/RingRacers /home/ringracers/rr_git
 WORKDIR /home/ringracers/rr_git
+RUN git checkout ${RR_TAG}
 RUN cmake --preset ninja-release
 RUN cmake --build --preset ninja-release
 
@@ -83,7 +84,7 @@ COPY --chown=ringracers --from=assets  /RingRacers/data/* data/
 COPY --chown=ringracers --from=assets  /RingRacers/models/* models/
 COPY --chown=ringracers --from=assets  /RingRacers/bios.pk3 bios.pk3
 COPY --chown=ringracers --from=assets  /RingRacers/models.dat models.dat
-COPY --chown=ringracers --from=builder /home/ringracers/rr_git/build/ninja-release/bin/ringracers ringracers
+COPY --chown=ringracers --from=builder /home/ringracers/rr_git/build/ninja-release/bin/ringracers_${RR_TAG} ringracers
 
 EXPOSE ${RR_PORT}/udp
 
