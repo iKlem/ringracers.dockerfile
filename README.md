@@ -16,7 +16,8 @@ docker build \
 	-t=ringracers-server .
 ```
 
-All availables build arguments,  :
+All availables build arguments, :
+
 |  Key      |  Values                                                  |  Default |
 |-----------|----------------------------------------------------------|----------|
 | RR_TAG    | Version of the game to run to, format : "vX.Y"           | "v2.2"   |
