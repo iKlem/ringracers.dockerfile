@@ -88,6 +88,9 @@ COPY --chown=ringracers --from=builder /home/ringracers/rr_git/build/ninja-relea
 
 EXPOSE ${RR_PORT}/udp
 
+ENV LOG_FILE="/home/ringracers/.ringracers/latest-log.txt"
+ENV ADDON_DIR="/home/ringracers/.ringracers/addons"
+
 COPY --chown=ringracers entrypoint.sh ./
 RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ./entrypoint.sh
